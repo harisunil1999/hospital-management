@@ -1,0 +1,22 @@
+<!-- administration/templates/admin_login.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Login</title>
+</head>
+<body>
+    <h1>Admin Login</h1>
+    {% if error_message %}
+    <p>{{ error_message }}</p>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <label for="email">Email:</label>
+        <input type="email" name="email" required><br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" required><br>
+        <input type="submit" value="Login">
+    </form>
+</body>
+</html>

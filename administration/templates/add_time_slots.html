@@ -1,0 +1,36 @@
+<!-- administration/templates/add_time_slots.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Time Slots</title>
+</head>
+<body>
+    <h1>Add Time Slots</h1>
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <label for="day_of_week">Day of Week:</label>
+        <select name="day_of_week" id="day_of_week">
+            <option value="mon">Monday</option>
+            <option value="tue">Tuesday</option>
+            <option value="wed">Wednesday</option>
+            <option value="thu">Thursday</option>
+            <option value="fri">Friday</option>
+            <option value="sat">Saturday</option>
+            <option value="sun">Sunday</option>
+        </select><br>
+        <label for="start_time">Start Time:</label>
+        <input type="time" name="start_time" required><br>
+        <label for="end_time">End Time:</label>
+        <input type="time" name="end_time" required><br>
+        <input type="submit" value="Add Time Slot">
+    </form>
+</body>
+</html>

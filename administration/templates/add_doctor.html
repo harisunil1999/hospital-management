@@ -1,0 +1,17 @@
+<!-- administration/templates/add_doctor.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Doctor</title>
+</head>
+<body>
+    <h1>Add Doctor for {{ department.name }}</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Add Doctor">
+    </form>
+    <a href="{% url 'department_list' %}">Back to Department List</a>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!-- administration/templates/department_form.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Department Form</title>
+</head>
+<body>
+    <h1>{% if form.instance.pk %}Update Department{% else %}Create Department{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="{% if form.instance.pk %}Update{% else %}Create{% endif %} Department">
+    </form>
+</body>
+</html>

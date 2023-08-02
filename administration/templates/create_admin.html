@@ -1,0 +1,21 @@
+<!-- administration/templates/create_admin.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Admin</title>
+</head>
+<body>
+    <h1>Create Admin</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" name="name" required><br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" required><br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" required><br>
+        <input type="submit" value="Create Admin">
+    </form>
+</body>
+</html>

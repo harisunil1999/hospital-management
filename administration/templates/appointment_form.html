@@ -1,0 +1,50 @@
+<!-- administration/templates/appointment_form.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Appointment Form</title>
+</head>
+<body>
+    <h1>Appointment Form</h1>
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" name="name" required><br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" required><br>
+        <label for="phone">Phone:</label>
+        <input type="text" name="phone" required><br>
+        <label for="place">Place:</label>
+        <input type="text" name="place" required><br>
+        <label for="date">Date:</label>
+        <input type="date" name="date" required><br>
+        <label for="department">Department:</label>
+        <select name="department" id="department">
+            {% for department in departments %}
+            <option value="{{ department.id }}">{{ department.name }}</option>
+            {% endfor %}
+        </select><br>
+        <label for="doctor">Doctor:</label>
+        <select name="doctor" id="doctor">
+            {% for doctor in doctors %}
+            <option value="{{ doctor.id }}">{{ doctor.name }}</option>
+            {% endfor %}
+        </select><br>
+        <label for="time_slot">Time Slot:</label>
+        <select name="time_slot" id="time_slot">
+            {% for time_slot in time_slots %}
+            <option value="{{ time_slot.id }}">{{ time_slot.start_time }} - {{ time_slot.end_time }}</option>
+            {% endfor %}
+        </select><br>
+        <input type="submit" value="Submit Appointment">
+    </form>
+</body>
+</html>
